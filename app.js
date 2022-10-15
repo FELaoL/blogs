@@ -4,6 +4,9 @@ const express = require("express");
 const path = require("path");
 // 创建网站服务器
 const app = express();
+// 数据库连接
+require("./model/connect");
+// require("./model/user");
 // 告诉express框架模板所在的位置
 app.set("views", path.join(__dirname, "views"));
 // 告诉express框架模板的默认后缀是什么
