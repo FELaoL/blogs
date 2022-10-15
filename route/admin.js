@@ -6,6 +6,10 @@ const home = express.Router();
 home.get("/login", (req, res) => {
 	res.render("admin/login");
 });
+// 创建用户列表路由
+home.get("/user", (req, res) => {
+	res.render("admin/user");
+});
 
 // 将路由对象作为模块成员进行导出
 module.exports = home;
