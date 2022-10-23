@@ -2,6 +2,8 @@
 const express = require("express");
 // 导入用户集合构造函数
 const { User } = require("./../model/user");
+// 导入bcrypt
+const bcrypt = require("bcrypt");
 // 创建博客展示页面路由
 const admin = express.Router();
 
@@ -21,8 +23,11 @@ admin.post("/login", async (req, res) => {
 	// 查询到了用户
 	if (user) {
 		//将客户端传递过来的密码和用户信息中的密码进行比对
-		if (password === user.password) {
+		let isValid = await bcrypt.compare(password, user.password);
+		if (isValid) {
 			// 登录成功
+			// 将用户名存储在请求对象中
+			req.session.username = user.username;
 			res.send("登录成功");
 		} else {
 			// 没有查询到用户
@@ -35,7 +40,9 @@ admin.post("/login", async (req, res) => {
 });
 // 创建用户列表路由
 admin.get("/user", (req, res) => {
-	res.render("admin/user");
+	res.render("admin/user", {
+		msg: req.session.username
+	});
 });
 
 // 将路由对象作为模块成员进行导出

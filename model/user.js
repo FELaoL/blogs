@@ -1,6 +1,8 @@
 // 创建用户集合
 //引入mongoose第三方模块
 const mongoose = require("mongoose");
+// 导入bcrypt
+const bcrypt = require("bcrypt");
 // 创建用户集合规则
 const userSchema = new mongoose.Schema({
 	username: {
@@ -36,20 +38,20 @@ const userSchema = new mongoose.Schema({
 // 创建集合
 const User = mongoose.model("User", userSchema);
 
-// User.create({
-// 	username: "FELaoL",
-// 	email: "FELaoL@sina.com",
-// 	password: "123456",
-// 	role: "admin",
-// 	state: 0
-// })
-// 	.then(() => {
-// 		console.log("用户创建成功");
-// 	})
-// 	.catch(() => {
-// 		console.log("用户创建失败");
-// 	});
-
+async function createUser() {
+	// 生成随机字符串gen=>generate 生成salt盐
+	const salt = await bcrypt.genSalt(10);
+	// 使用随机字符串对密码进行加密
+	const pass = await bcrypt.hash("123456", salt);
+	User.create({
+		username: "FELaoL",
+		email: "FELaoL@sina.com",
+		password: pass,
+		role: "admin",
+		state: 0
+	});
+}
+// createUser();
 // 将用户集合作为模块成员进行
 module.exports = {
 	User
