@@ -3,6 +3,8 @@
 const mongoose = require("mongoose");
 // 导入bcrypt
 const bcrypt = require("bcrypt");
+// 引入joi模块
+const joi = require("joi");
 // 创建用户集合规则
 const userSchema = new mongoose.Schema({
 	username: {
@@ -52,7 +54,26 @@ async function createUser() {
 	});
 }
 // createUser();
+
+// 验证用户信息
+const validateUser = user => {
+	// 定义对象的验证规则
+	const schema = joi.object({
+		username: joi.string().min(2).max(12).required().error(new Error("用户名不符合验证规则")),
+		email: joi.string().email(),
+		password: joi
+			.string()
+			.regex(/^[a-zA-Z0-9]{3,30}$/)
+			.required()
+			.error(new Error("密码格式不符合要求")),
+		role: joi.string().valid("normal", "admin").required().error(new Error("角色值非法")),
+		state: joi.number().valid(0, 1).required().error(new Error("状态值非法"))
+	});
+	// 实施验证
+	return schema.validateAsync(user);
+};
 // 将用户集合作为模块成员进行
 module.exports = {
-	User
+	User,
+	validateUser
 };

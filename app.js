@@ -15,7 +15,13 @@ app.use(bodyParse.urlencoded({ extended: false }));
 
 app.use(
 	session({
-		secret: "secret key"
+		secret: "secret key",
+		// express-session deprecated undefined resave option; provide resave option app.js:17:2
+		resave: false,
+		saveUninitialized: false,
+		cookie: {
+			maxAge: 24 * 60 * 60 * 1000
+		}
 	})
 );
 // require("./model/user");
@@ -37,6 +43,20 @@ const admin = require("./route/admin");
 // 为路由匹配请求路径
 app.use("/home", home);
 app.use("/admin", admin);
+
+app.use((err, req, res, next) => {
+	// 将字符串对象转换为对象类型
+	// JSON.parse()
+	const result = JSON.parse(err);
+	// {path: `/admin/user-edit`,id: id,message: "密码比对失败，不能进行用户信息的修改"};
+	var params = [];
+	for (let attr in result) {
+		if (attr !== "path") {
+			params.push(attr + "=" + result[attr]);
+		}
+	}
+	res.redirect(`${result.path}?${params.join("&")}`);
+});
 // 监听端口
 app.listen("80");
 console.log("网站服务器启动成功，请访问localhost");
