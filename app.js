@@ -24,7 +24,6 @@ app.use(
 		}
 	})
 );
-// require("./model/user");
 // 告诉express框架模板所在的位置
 app.set("views", path.join(__dirname, "views"));
 // 告诉express框架模板的默认后缀是什么

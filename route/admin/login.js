@@ -20,7 +20,6 @@ module.exports = async (req, res) => {
 			// 登录成功
 			// 将用户名存储在请求对象中
 			req.session.username = user.username;
-			// res.send("登录成功");
 			req.app.locals.userInfo = user;
 			// 重定向到用户列表页面
 			res.redirect("/admin/user");

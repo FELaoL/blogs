@@ -24,5 +24,9 @@ admin.post("/user-edit", require("./admin/user-edit-fn"));
 
 // 实现用户信息修改功能
 admin.post("/user-modify", require("./admin/user-modify"));
+
+// 删除用户的功能
+admin.get("/delete", require("./admin/user-delete"));
+
 // 将路由对象作为模块成员进行导出
 module.exports = admin;
