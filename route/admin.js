@@ -11,22 +11,22 @@ admin.get("/login", require("./admin/loginPage"));
 admin.post("/login", require("./admin/login"));
 
 // 创建用户列表路由
-admin.get("/user", require("./admin/userPage"));
+admin.get("/user", require("./admin/user/userPage"));
 
 // 实现退出功能
 admin.get("/logout", require("./admin/logout"));
 
 // 创建用户编辑页面路由
-admin.get("/user-edit", require("./admin/user-edit"));
+admin.get("/user-edit", require("./admin/user/user-edit"));
 
 // 创建实现用户添加功能路由
-admin.post("/user-edit", require("./admin/user-edit-fn"));
+admin.post("/user-edit", require("./admin/user/user-edit-fn"));
 
 // 用户信息修改功能路由
-admin.post("/user-modify", require("./admin/user-modify"));
+admin.post("/user-modify", require("./admin/user/user-modify"));
 
 // 用户删除的功能路由
-admin.get("/delete", require("./admin/user-delete"));
+admin.get("/delete", require("./admin/user/user-delete"));
 
 // 文章列表页面路由
 admin.get("/article", require("./admin/article.js"));

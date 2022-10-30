@@ -1,5 +1,5 @@
 // 导入用户集合构造函数
-const { User } = require("../../model/user");
+const { User } = require("../../../model/user");
 
 module.exports = async (req, res) => {
 	// 标识 标识当前访问的是用户管理页面

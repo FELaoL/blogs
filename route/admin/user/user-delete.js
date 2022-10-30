@@ -1,4 +1,4 @@
-const { User } = require("../../model/user");
+const { User } = require("../../../model/user");
 const mongoose = require("mongoose");
 
 module.exports = async (req, res) => {
