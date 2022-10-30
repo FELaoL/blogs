@@ -9,7 +9,7 @@
     {{include './common/header.art'}}
     <!-- 文章列表开始 -->
     <ul class="list w1100">
-    {{each articles.records}}
+    {{each result.records}}
         <li class="{{$index % 2 == 0 ? 'fl' : 'fr'}}">
             <a href="/home/article?id={{@$value._id}}" class="thumbnail">
                 <img src="{{$value.cover}}" />

@@ -9,11 +9,13 @@
         <!-- 网站导航开始 -->
         <ul class="navigation fr">
             <li>
-                <a class="active" href="index.html">首页</a>
+                <a class="{{currentLink === 'index' ? 'active' : ''}}" href="/home/">首页</a>
             </li>
+            {{if !userInfo}}
             <li>
-                <a href="#">登录</a>
+                <a href="/admin/login">登录</a>
             </li>
+            {{/if}}
         </ul>
         <!-- 网站导航结束 -->
     </div>
