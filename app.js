@@ -12,6 +12,8 @@ const template = require("art-template");
 const dateFormat = require("dateformat");
 // 导入morgan这个第三方模块
 const morgan = require("morgan");
+// 导入config模块
+const config = require("config");
 // 创建网站服务器
 const app = express();
 // 数据库连接
