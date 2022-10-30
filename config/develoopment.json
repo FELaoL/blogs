@@ -1,7 +1,6 @@
 {
 	"db": {
 		"user": "admin",
-		"pwd": "123456",
 		"host": "localhost",
 		"port": "27017",
 		"name": "blog"
