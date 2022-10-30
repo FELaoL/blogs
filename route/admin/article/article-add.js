@@ -1,15 +1,14 @@
 // 引入formidable第三方模块
 const formidable = require("formidable");
 const path = require("path");
-const { Article } = require("../../model/article");
+const { Article } = require("../../../model/article");
 
 module.exports = (req, res) => {
 	// 1.创建表单解析对象
-	const form = new formidable.IncomingForm();
-	// 2.配置上传文件的存放位置
-	form.uploadDir = path.join(__dirname, "../", "../", "public", "uploads");
 	// 3.保留上传文件的后缀
-	form.keepExtensions = true;
+	const form = formidable({ keepExtensions: true });
+	// 2.配置上传文件的存放位置
+	form.uploadDir = path.join(__dirname, "../", "../", "../", "public", "uploads");
 	// 4.解析表单
 	form.parse(req, async (err, fields, files) => {
 		// 1.err错误对象，如果表单解析失败，err里面存储错误信息，如果表单解析成功，err将会是null
@@ -19,7 +18,7 @@ module.exports = (req, res) => {
 			title: fields.title,
 			author: fields.author,
 			publishDate: fields.publishDate,
-			cover: files.cover.path.split("public")[1],
+			cover: files.cover.filepath.split("public")[1],
 			content: fields.content
 		});
 		// 将页面重定向到文章列表页面

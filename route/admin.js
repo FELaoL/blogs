@@ -29,12 +29,16 @@ admin.post("/user-modify", require("./admin/user/user-modify"));
 admin.get("/delete", require("./admin/user/user-delete"));
 
 // 文章列表页面路由
-admin.get("/article", require("./admin/article.js"));
+admin.get("/article", require("./admin/article/article.js"));
 
 // 文章编辑页面路由
-admin.get("/article-edit", require("./admin/article-edit"));
+admin.get("/article-edit", require("./admin/article/article-edit"));
 
 // 实现文章添加功能的路由
-admin.post("/addArticle", require("./admin/article-add"));
+admin.post("/addArticle", require("./admin/article/article-add"));
+
+admin.post("/updateArticle", require("./admin/article/updateArticle"));
+
+admin.get("/deleteArticle", require("./admin/article/deleteArticle"));
 // 将路由对象作为模块成员进行导出
 module.exports = admin;

@@ -1,4 +1,4 @@
-const { Article } = require("../../model/article");
+const { Article } = require("../../../model/article");
 const mongoose = require("mongoose");
 
 module.exports = async (req, res) => {

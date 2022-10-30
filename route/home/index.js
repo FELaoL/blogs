@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 	const page = req.query.page;
 	// 从数据库中查询数据
 	let result = await pagination(Article).find().page(page).size(10).display(4).populate("author").exec();
-
+	result = JSON.parse(JSON.stringify(result));
 	// 渲染模板并传递数据
 	res.render("./home/default", {
 		result
