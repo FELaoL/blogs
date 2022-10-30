@@ -28,5 +28,13 @@ admin.post("/user-modify", require("./admin/user-modify"));
 // 删除用户的功能
 admin.get("/delete", require("./admin/user-delete"));
 
+// 文章列表页面路由
+admin.get("/article", require("./admin/article.js"));
+
+// 文章编辑页面路由
+admin.get("/article-edit", require("./admin/article-edit"));
+
+// 实现文章添加功能的路由
+admin.post("/addArticle", require("./admin/article-add"));
 // 将路由对象作为模块成员进行导出
 module.exports = admin;
