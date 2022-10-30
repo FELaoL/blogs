@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const articleSchema = new mongoose.Schema({
 	title: {
 		type: String,
-		min: 4,
-		max: 20,
+		minlength: 4,
+		maxlength: 20,
 		required: [true, "请填写文章标题"]
 	},
 	author: {

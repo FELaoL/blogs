@@ -20,7 +20,7 @@ const app = express();
 require("./model/connect");
 // 处理post请求参数
 app.use(bodyParse.urlencoded({ extended: false }));
-
+// 配置session
 app.use(
 	session({
 		secret: "secret key",
@@ -42,7 +42,7 @@ app.engine("art", require("express-art-template"));
 template.defaults.imports.dateFormat = dateFormat;
 // 开放静态资源文件
 app.use(express.static(path.join(__dirname, "public")));
-console.log(process.env);
+// 获取系统环境变量，返回值是对象
 if (process.env.NODE_ENV === "development") {
 	// 当前是开发环境
 	// 将开发环境中，将客户端发送到服务器端的请求信息打印到控制台中

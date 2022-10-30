@@ -1,11 +1,11 @@
 {{extend './common/layout.art'}}
 
 {{block 'link'}}
-<link rel="stylesheet" href="/home/css/article.css" />
+    <link rel="stylesheet" href="/home/css/article.css" />
 {{/block}}
 
 {{block 'main'}}
-{{include './common/header.art'}}
+    {{include './common/header.art'}}
     <!-- 文章框架开始 -->
     <div class="article">
         <div class="w1100">
@@ -21,7 +21,7 @@
                     {{@article.content}}
                 </div>
                 <div class="article-comment">
-                {{if userInfo}}
+                    {{if userInfo}}
                     <h4>评论</h4>
 
                     <form class="comment-form" action="/home/comment" method="post">
@@ -36,7 +36,7 @@
                     <div><h2>先进行登录，再对文章进行评论</h2></div>
 					{{/if}}
                     <div class="comment-list">
-                    {{each comments}}
+                        {{each comments}}
                         <div class="mb10">
                             <div class="article-info">
                                 <span class="author">{{$value.uid.username}}</span>

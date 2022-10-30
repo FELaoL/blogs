@@ -8,6 +8,7 @@ module.exports = async (req, res, next) => {
 	//即将要修改的用户id
 	const id = req.query.id;
 	let newId = mongoose.Types.ObjectId(id);
+	// 根据id查询用户信息
 	let user = await User.findOne({ _id: newId });
 	// 密码比对
 	let isValid = await bcrypt.compare(password, user.password);

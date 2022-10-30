@@ -15,15 +15,15 @@ const userSchema = new mongoose.Schema({
 	},
 	email: {
 		type: String,
-		required: true,
 		// 保证邮箱地址在插入数据时不重复
-		unique: true
+		unique: true,
+		required: true
 	},
 	password: {
 		type: String,
 		required: true
 	},
-	//  admin 超级管理员
+	// admin 超级管理员
 	// normal 普通用户
 	role: {
 		type: String,
@@ -33,7 +33,6 @@ const userSchema = new mongoose.Schema({
 	// 1 禁用状态
 	state: {
 		type: Number,
-		required: true,
 		default: 0
 	}
 });
@@ -60,7 +59,7 @@ const validateUser = user => {
 	// 定义对象的验证规则
 	const schema = joi.object({
 		username: joi.string().min(2).max(12).required().error(new Error("用户名不符合验证规则")),
-		email: joi.string().email(),
+		email: joi.string().email().error(new Error("邮箱格式不符合要求")),
 		password: joi
 			.string()
 			.regex(/^[a-zA-Z0-9]{3,30}$/)

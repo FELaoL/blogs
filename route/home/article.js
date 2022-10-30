@@ -13,14 +13,10 @@ module.exports = async (req, res) => {
 	let article = await Article.findOne({
 		_id: newId
 	}).populate("author");
-	article = JSON.stringify(article);
-	article = JSON.parse(article);
 	// 查询当前文章对应的评论信息
 	let comments = await Comment.find({
 		aid: newId
 	}).populate("uid");
-	comments = JSON.stringify(comments);
-	comments = JSON.parse(comments);
 	res.render("./home/article", {
 		article,
 		comments

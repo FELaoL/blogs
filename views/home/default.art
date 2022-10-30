@@ -1,12 +1,12 @@
 {{extend './common/layout.art'}}
 
 {{block 'link'}}
-<link rel="stylesheet" href="/home/css/index.css" />
+    <link rel="stylesheet" href="/home/css/index.css" />
 {{/block}}
 
 {{block 'main'}}
 
-{{include './common/header.art'}}
+    {{include './common/header.art'}}
     <!-- 文章列表开始 -->
     <ul class="list w1100">
     {{each articles.records}}

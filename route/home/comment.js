@@ -12,5 +12,6 @@ module.exports = async (req, res) => {
 		time: new Date()
 	});
 
-	res.redirect(`/home/article?id=` + aid);
+	// 将页面重定向会文章详情页面
+	res.redirect("/home/article?id=" + aid);
 };

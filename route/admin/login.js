@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 	const user = await User.findOne({ email });
 	// 查询到了用户
 	if (user) {
-		//将客户端传递过来的密码和用户信息中的密码进行比对
+		//将客户端传递过来的密码和用户信息中的密码进行比对 true比对成功， false比对失败
 		let isValid = await bcrypt.compare(password, user.password);
 		if (isValid) {
 			// 登录成功

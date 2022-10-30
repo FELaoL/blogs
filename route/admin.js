@@ -22,10 +22,10 @@ admin.get("/user-edit", require("./admin/user-edit"));
 // 创建实现用户添加功能路由
 admin.post("/user-edit", require("./admin/user-edit-fn"));
 
-// 实现用户信息修改功能
+// 用户信息修改功能路由
 admin.post("/user-modify", require("./admin/user-modify"));
 
-// 删除用户的功能
+// 用户删除的功能路由
 admin.get("/delete", require("./admin/user-delete"));
 
 // 文章列表页面路由

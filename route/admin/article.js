@@ -14,10 +14,6 @@ module.exports = async (req, res) => {
 	// exec向数据库中发送查询请求
 	// 查询所有文章数据
 	let articles = await pagination(Article).find().page(page).size(10).display(4).populate("author").exec();
-	articles = JSON.stringify(articles);
-	articles = JSON.parse(articles);
-	// res.send(articles)
-	console.log(articles);
 	// 渲染文章列表页面模板
 	res.render("admin/article", {
 		articles
