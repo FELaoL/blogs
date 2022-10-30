@@ -1,8 +1,8 @@
 {
 	"db": {
-		"user": "admin",
+		"user": "blogs",
 		"host": "localhost",
 		"port": "27017",
-		"name": "blog"
+		"name": "blogs"
 	}
 }

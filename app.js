@@ -47,10 +47,8 @@ if (process.env.NODE_ENV === "development") {
 	// 当前是开发环境
 	// 将开发环境中，将客户端发送到服务器端的请求信息打印到控制台中
 	app.use(morgan("dev"));
-	console.log("开发环境");
 } else {
 	// 当前是生产环境
-	console.log("生产环境");
 }
 // 引入路由模块
 const home = require("./route/home");

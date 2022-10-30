@@ -11,7 +11,8 @@ module.exports = async (req, res) => {
 	// 根据邮箱地址查询用户信息
 	// 如果查询到了用户，user变量的值是对象类型，对象中存储的用户信息
 	// 如果没有查询到用户，user变量为空
-	const user = await User.findOne({ email });
+	// 排除未启用的用户
+	const user = await User.findOne({ email, state: 0 });
 	// 查询到了用户
 	if (user) {
 		//将客户端传递过来的密码和用户信息中的密码进行比对 true比对成功， false比对失败
@@ -24,7 +25,7 @@ module.exports = async (req, res) => {
 			req.session.role = user.role;
 			req.app.locals.userInfo = user;
 			// 对用户的角色进行判断
-			if (loginUser.role === "admin") {
+			if (user.role === "admin") {
 				// 重定向到用户列表页面
 				res.redirect("/admin/user");
 			} else {
