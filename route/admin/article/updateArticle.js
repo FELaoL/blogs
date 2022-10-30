@@ -9,7 +9,6 @@ module.exports = async (req, res, next) => {
 	form.parse(req, async (err, fields, files) => {
 		const { id } = req.query;
 		let newId = mongoose.Types.ObjectId(id);
-		console.log(files);
 		if (files && files.cover && files.cover.filepath) {
 			await Article.updateOne(
 				{

@@ -8,7 +8,6 @@ module.exports = async (req, res) => {
 	if (id) {
 		let newId = mongoose.Types.ObjectId(id);
 		let queryArticle = await Article.findOne({ _id: newId });
-		// console.log(queryUser)
 		res.render("./admin/article-edit", {
 			article: queryArticle,
 			link: "/admin/updateArticle?id=" + id,
