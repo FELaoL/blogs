@@ -11,7 +11,7 @@
             <div class="title">
                 <h4>用户</h4>
                 <span>找到{{count}}个用户</span>
-                <a href="/admin/user-edit" class="btn btn-primary new">新增用户</a>
+                <a class="btn btn-primary new" href="/admin/user-edit">新增用户</a>
             </div>
             <!-- /分类标题 -->
             <!-- 内容列表 -->
@@ -35,7 +35,7 @@
                         <td>{{$value.role =='admin'?'超级管理员':'普通用户'}}</td>
                         <td>{{$value.state==0? '启用': '禁用'}}</td>
                         <td>
-                            <a href="/admin/user-edit?id={{@$value._id}}" class="glyphicon glyphicon-edit"></a>
+                            <a class="glyphicon glyphicon-edit" href="/admin/user-edit?id={{@$value._id}}"></a>
                             <i class="glyphicon glyphicon-remove delete" data-toggle="modal" data-target=".confirm-modal" data-id="{{@$value._id}}"></i>
                         </td>
                     </tr>
@@ -68,16 +68,16 @@
         <div class="modal-dialog modal-lg">
             <form class="modal-content" method="get" action="/admin/delete">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <button class="close" type="button" data-dismiss="modal"><span>&times;</span></button>
                     <h4 class="modal-title">请确认</h4>
                 </div>
                 <div class="modal-body">
                     <p>您确定要删除这个用户吗?</p>
-                    <input type = "hidden" name="id" id="deleteUserId"/>
+                    <input id="deleteUserId" type = "hidden" name="id"/>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <input type="submit" class="btn btn-primary" />
+                    <button class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+                    <input class="btn btn-primary" type="submit" />
                 </div>
             </form>
         </div>

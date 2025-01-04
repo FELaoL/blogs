@@ -55,7 +55,7 @@ async function createUser() {
 // createUser();
 
 // 验证用户信息
-const validateUser = user => {
+const validateUser = (user) => {
 	// 定义对象的验证规则
 	const schema = joi.object({
 		username: joi.string().min(2).max(12).required().error(new Error("用户名不符合验证规则")),

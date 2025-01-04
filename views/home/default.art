@@ -11,7 +11,7 @@
     <ul class="list w1100">
     {{each result.records}}
         <li class="{{$index % 2 == 0 ? 'fl' : 'fr'}}">
-            <a href="/home/article?id={{@$value._id}}" class="thumbnail">
+            <a class="thumbnail" href="/home/article?id={{@$value._id}}">
                 <img src="{{$value.cover}}" />
             </a>
             <div class="content">
