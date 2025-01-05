@@ -33,7 +33,7 @@
         <a href="/home/?page={{result.page - 1}}">上一页</a>
         {{/if}}
         {{each result.display}}
-        <a href="/home/?page={{$value}}" class="{{result.page == $value ? 'active' : ''}}">{{$value}}</a>
+        <a class="{{result.page == $value ? 'active' : ''}}" href="/home/?page={{$value}}">{{$value}}</a>
         {{/each}}
         {{if result.page < result.pages}}
         <a href="/home/?page={{result.page - 0 + 1}}">下一页</a>

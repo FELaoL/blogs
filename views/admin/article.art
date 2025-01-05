@@ -33,7 +33,7 @@
                         <td>{{$value.author.username}}</td>
                         <td>
                             <a class="glyphicon glyphicon-edit" href="/admin/article-edit?id={{@$value._id}}"></a>
-                            <i class="glyphicon glyphicon-remove delete" data-toggle="modal" data-target=".confirm-modal" data-id="{{@$value._id}}"></i>
+                            <i class="glyphicon glyphicon-remove delete" data-id="{{@$value._id}}" data-toggle="modal" data-target=".confirm-modal"></i>
                         </td>
                     </tr>
                     {{/each}}

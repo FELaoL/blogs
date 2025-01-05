@@ -19,15 +19,15 @@
             <form class="form-container" action="{{link}}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>标题</label>
-                    <input class="form-control" type="text" placeholder="请输入文章标题" name="title" value="{{article && article.title}}"/>
+                    <input class="form-control" value="{{article && article.title}}" type="text" placeholder="请输入文章标题" name="title"/>
                 </div>
                 <div class="form-group">
                     <label>作者</label>
-                    <input class="form-control" name="author" type="text" readonly  value="{{@(article &&article.author)||(userInfo&&userInfo._id)}}"/>
+                    <input class="form-control"  value="{{@(article &&article.author)||(userInfo&&userInfo._id)}}" name="author" type="text" readonly/>
                 </div>
                 <div class="form-group">
                     <label>发布时间</label>
-                    <input class="form-control" name="publishDate" type="date" value="{{dateFormat(article && article.publishDate, 'yyyy-mm-dd')}}" />
+                    <input class="form-control" value="{{dateFormat(article && article.publishDate, 'yyyy-mm-dd')}}" name="publishDate" type="date" />
                 </div>
 
                 <div class="form-group">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label>内容</label>
-                    <textarea id="editor" class="form-control richText" name="content" data-value="{{article && article.content}}"></textarea>
+                    <textarea id="editor" class="form-control data-value="{{article && article.content}}" richText" name="content"></textarea>
                 </div>
                 <div class="buttons">
                     <input class="btn btn-primary" type="submit" />

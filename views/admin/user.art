@@ -36,7 +36,7 @@
                         <td>{{$value.state==0? '启用': '禁用'}}</td>
                         <td>
                             <a class="glyphicon glyphicon-edit" href="/admin/user-edit?id={{@$value._id}}"></a>
-                            <i class="glyphicon glyphicon-remove delete" data-toggle="modal" data-target=".confirm-modal" data-id="{{@$value._id}}"></i>
+                            <i class="glyphicon glyphicon-remove delete" data-id="{{@$value._id}}" data-toggle="modal" data-target=".confirm-modal"></i>
                         </td>
                     </tr>
                     {{ /each }}

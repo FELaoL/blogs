@@ -15,11 +15,11 @@
             <form class="form-container" action="{{link}}" method="post">
                 <div class="form-group">
                     <label>用户名</label>
-                    <input class="form-control" type="text" placeholder="请输入用户名" name="username"  value="{{user && user.username}}"/>
+                    <input class="form-control"  value="{{user && user.username}}" type="text" placeholder="请输入用户名" name="username"/>
                 </div>
                 <div class="form-group">
                     <label>邮箱</label>
-                    <input class="form-control" type="email" placeholder="请输入邮箱地址" name="email" value="{{user && user.email}}"/>
+                    <input class="form-control" value="{{user && user.email}}" type="email" placeholder="请输入邮箱地址" name="email"/>
                 </div>
                 <div class="form-group">
                     <label>密码</label>
@@ -28,19 +28,19 @@
                 <div class="form-group">
                     <label>角色</label>
                     <select class="form-control" name="role">
-                        <option value="normal" {{user && user.role =='normal'?'selected':''}}>普通用户</option>
-                        <option value="admin" {{user && user.role =='admin'?'selected':''}}>超级管理员</option>
+                        <option {{user && user.role =='normal'?'selected':''}} value="normal">普通用户</option>
+                        <option {{user && user.role =='admin'?'selected':''}} value="admin">超级管理员</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>状态</label>
                     <select class="form-control" name="state">
-                        <option value="0" {{user && user.state =='0'?'selected':''}}>启用</option>
-                        <option value="1" {{user && user.state =='1'?'selected':''}}>禁用</option>
+                        <option {{user && user.state =='0'?'selected':''}} value="0">启用</option>
+                        <option {{user && user.state =='1'?'selected':''}} value="1">禁用</option>
                     </select>
                 </div>
                 <div class="buttons">
-                    <input class="btn btn-primary" type="submit"  value="{{button}}"/>
+                    <input class="btn btn-primary"  value="{{button}}" type="submit"/>
                 </div>
             </form>
         </div>
